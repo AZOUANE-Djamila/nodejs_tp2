@@ -1,0 +1,14 @@
+<a href="ajouter.html">NOUVEL EMPLOYE</a>
+@if (model.message == "OK") {
+  <div></div>
+}
+<table>
+  <thead>
+    <tr><th>CODE</th><th>NOM</th><th>PRENOM</th><th>ACTION</th></tr>
+  </thead>
+  @model.donnees.forEach(e=> {
+      <tr><td>@e.employeeNumber</td><td>@e.firstName</td><td>@e.lastName</td>
+      <td><a href="modifier.html?num=@e.employeeNumber">EDITER</a> 
+          <a onclick="return confirm('Supprimer ?')" href="supprimer.html?num=@e.employeeNumber">SUPPRIMER</a></td></tr>
+  })
+</table>
